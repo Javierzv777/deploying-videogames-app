@@ -25,22 +25,22 @@ const axios=require('axios');
 
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-  try{const query= await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`).then(response=>response.data.results).catch(e=>console.log(e))
-  let genres= query.map((genre)=>{return {name:genre.name,
-      id:genre.id
-  }})
-  Genre.bulkCreate(genres)
-}catch(e){
-  console.log('No se creo la tabla "Genres"')
-}
-axios.get(`https://api.rawg.io/api/platforms?key=${API_KEY}`).then(response=>response.data.results)
-.then((response)=>response.map(e=> {return {name:e.name}}))
-.then(response=> Platform.bulkCreate(response) )
-.catch(()=>console.log('no se creo la tabla "platforms"'))
+//   try{const query= await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`).then(response=>response.data.results).catch(e=>console.log(e))
+//   let genres= query.map((genre)=>{return {name:genre.name,
+//       id:genre.id
+//   }})
+//   Genre.bulkCreate(genres)
+// }catch(e){
+//   console.log('No se creo la tabla "Genres"')
+// }
+// axios.get(`https://api.rawg.io/api/platforms?key=${API_KEY}`).then(response=>response.data.results)
+// .then((response)=>response.map(e=> {return {name:e.name}}))
+// .then(response=> Platform.bulkCreate(response) )
+// .catch(()=>console.log('no se creo la tabla "platforms"'))
   
   
 
