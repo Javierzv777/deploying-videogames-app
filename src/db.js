@@ -6,7 +6,8 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, API_KEY
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/da8sfbua2fe6lm`, {
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
+const sequelize = new Sequelize(`postgres://jxipckscjvjntz:3dff5544770711c5183fed05611f6cd17a68a6ff3a98a37390c4b9bf6813a346@ec2-34-231-221-151.compute-1.amazonaws.com/da8sfbua2fe6lm`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
