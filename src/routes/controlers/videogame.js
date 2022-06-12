@@ -71,11 +71,12 @@ async function createVideogame(req, res) {
     const platformsCreate=platforms.filter(e=>e.name!=='')
     
      //[{score:''}]
-    if (((rating&&!Array.isArray(rating))||!rating)
-    ||((genres&&!Array.isArray(genres))||(genres&&Array.isArray(genres)&&typeof genres[0].name!=='string'))
-    ||((platforms&&!Array.isArray(platforms))||(platforms&&Array.isArray(platforms)&&typeof platforms[0].name!=='string'))
-    ||(!name||typeof name!=="string")
-    ||(image&&typeof image!=="string")
+     // ((rating&&!Array.isArray(rating))||!rating)
+ // ||((genres&&!Array.isArray(genres)))
+ // ||((platforms&&!Array.isArray(platforms)))||
+    if (
+    (!name||typeof name!=="string")
+    // ||(image&&typeof image!=="string")
     ||(!description||typeof description!=="string")){
         return res.status(404).send('debe introducir datos correctos')
     } 
