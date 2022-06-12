@@ -6,7 +6,7 @@ const {
   // API_KEY,
   DB_USER, DB_PASSWORD, DB_HOST, 
 } = process.env;
-const API_KEY=bfd29d37511148239afcde82e03dd71b
+const API_KEY='bfd29d37511148239afcde82e03dd71b'
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
 const sequelize = new Sequelize(`postgres://jxipckscjvjntz:3dff5544770711c5183fed05611f6cd17a68a6ff3a98a37390c4b9bf6813a346@ec2-34-231-221-151.compute-1.amazonaws.com/da8sfbua2fe6lm`, {
   logging: false, // set to console.log to see the raw SQL queries
