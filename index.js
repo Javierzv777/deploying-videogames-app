@@ -26,7 +26,7 @@ const axios=require('axios');
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(async () => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT||3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 //   try{const query= await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`).then(response=>response.data.results).catch(e=>console.log(e))
