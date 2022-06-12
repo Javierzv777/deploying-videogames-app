@@ -107,7 +107,7 @@ async function createVideogame(req, res) {
         
         //rectifico si el argumento que recibí como platforms en un arreglo 
             //con elementos
-        Promise.all(
+        platformsCreate.length>0&&Promise.all(
             platformsCreate.map((e) => {
                 return Platform.findOrCreate({ //creo las plataformas si no existen
                     where: { name: e.name },
@@ -128,7 +128,7 @@ async function createVideogame(req, res) {
         
         //creando nuevos items en genres
     
-        Genre.findAll({//agrego las relaciones de Generos con los juegos
+        genreNames.length>0&&Genre.findAll({//agrego las relaciones de Generos con los juegos
             where: {
                 name: { [Op.in]: genreNames }
             }
@@ -198,8 +198,6 @@ async function updateVideogame(req, res) {
                             Platform.findByPk(e[0].id)
                                 .then(e => game.addPlatform(e))//agrego las relaciones con las plataformas
                                 .catch(e => res.status(404).send(e.message))
-                        
-
                     })
 
                 }).catch(e => res.status(404).send(e.message))
