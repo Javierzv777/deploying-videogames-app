@@ -69,14 +69,10 @@ async function createVideogame(req, res) {
     const { name, image, description, released, genres, platforms,rating } = req.body
     const genreNames = genres.map(e => e.name)
     const platformsCreate=platforms.filter(e=>e.name!=='')
-    
-     //[{score:''}]
-     // ((rating&&!Array.isArray(rating))||!rating)
- // ||((genres&&!Array.isArray(genres)))
- // ||((platforms&&!Array.isArray(platforms)))||
+ 
     if (
     (!name||typeof name!=="string")
-    // ||(image&&typeof image!=="string")
+    ||(image&&typeof image!=="string")
     ||(!description||typeof description!=="string")){
         return res.status(404).send('debe introducir datos correctos')
     } 
